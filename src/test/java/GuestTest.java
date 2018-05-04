@@ -14,7 +14,7 @@ public class GuestTest {
     @Before
     public void before(){
         guest = new Guest("Paul", 100);
-        bedroom = new Bedroom(BedroomType.DOUBLE.getCapacity(),BedroomType.DOUBLE);
+        bedroom = new Bedroom(BedroomType.DOUBLE);
 
     }
 

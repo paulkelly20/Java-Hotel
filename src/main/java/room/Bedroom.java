@@ -11,8 +11,8 @@ public class Bedroom extends Room {
 
 
 
-    public Bedroom(int capacity, BedroomType bedroomtype) {
-        super(capacity);
+    public Bedroom(BedroomType bedroomtype) {
+        super(bedroomtype.getCapacity());
         this.bedroomtype = bedroomtype;
 
     }
