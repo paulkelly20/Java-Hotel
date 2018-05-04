@@ -35,6 +35,15 @@ public class BedroomTest {
     }
 
     @Test
+    public void addGuesttoRoomRoomFull(){
+        bedroom.addGuestToRoom(guest);
+        bedroom.addGuestToRoom(guest);
+        bedroom.addGuestToRoom(guest);
+        bedroom.addGuestToRoom(guest);
+        assertEquals(2, bedroom.countGuestsInRoom());
+    }
+
+    @Test
     public void testIfGuestCanBecheckedOut(){
         bedroom.addGuestToRoom(guest);
         bedroom.checkOutGuestsFromRoom();

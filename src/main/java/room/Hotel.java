@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class Hotel {
     private String name;
+    private double till;
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferencerooms;
     private ArrayList<DiningRoom> diningrooms;
 
-    public Hotel(String name) {
+    public Hotel(String name, double till) {
         this.name = name;
+        this.till = till;
         this.bedrooms = new ArrayList<>();
         this.conferencerooms = new ArrayList<>();
         this.diningrooms = new ArrayList<>();
@@ -42,4 +44,23 @@ public class Hotel {
     public void addDiningroom(DiningRoom diningroom){
         diningrooms.add(diningroom);
     }
+
+    public void giveBedroomsANumber() {
+        int i = 1;
+        for (Bedroom bedroom : this.bedrooms) {
+              bedroom.setRoomnumber(i); i++ ;
+
+        }
+
+    }
+
+//    public void dealCard(int cards) {
+//
+//        for (Player player : this.players) {
+//            for(int i = 0; i < cards ; i++) {
+//                player.receiveCard(deck.giveCard());
+//            }
+//        }
+//    }
+
 }

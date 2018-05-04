@@ -8,12 +8,14 @@ import java.util.ArrayList;
 
 public class Bedroom extends Room {
     private BedroomType bedroomtype;
+    private int roomnumber;
 
 
 
     public Bedroom(BedroomType bedroomtype) {
         super(bedroomtype.getCapacity());
         this.bedroomtype = bedroomtype;
+        this.roomnumber = roomnumber;
 
     }
 
@@ -30,7 +32,11 @@ public class Bedroom extends Room {
         return this.bedroomtype.getPrice();
     }
 
+    public int getRoomnumber() {
+        return roomnumber;
+    }
 
-
-
+    public void setRoomnumber(int roomnumber) {
+        this.roomnumber = roomnumber;
+    }
 }

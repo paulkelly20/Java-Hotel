@@ -21,6 +21,7 @@ public abstract class Room {
     }
 
     public void addGuestToRoom(Guest guest){
+        if(this.capacity > room.size())
         room.add(guest);
     }
 
