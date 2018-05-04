@@ -35,3 +35,13 @@
 out/
 target/
 .idea_modules/
+.gitignore
+.gradle/
+.idea/
+README.md
+build.gradle
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
+src/
