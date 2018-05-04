@@ -24,7 +24,8 @@ public abstract class Room {
         room.add(guest);
     }
 
-
-
+    public int getCapacity() {
+        return capacity;
+    }
 }
 
