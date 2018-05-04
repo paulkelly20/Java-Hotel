@@ -21,6 +21,10 @@ public class Hotel {
         return name;
     }
 
+    public double getTill() {
+        return till;
+    }
+
     public int getBedroomsCount() {
         return bedrooms.size();
     }
@@ -35,6 +39,14 @@ public class Hotel {
 
     public void addBedroom(Bedroom bedroom) {
         bedrooms.add(bedroom);
+    }
+
+    public double bedroomPrice(){
+        return bedroomPrice();
+    }
+
+    public double conferenceRoomCost(){
+        return conferenceRoomCost();
     }
 
     public void addConferenceRoom(ConferenceRoom conferenceroom) {
@@ -54,13 +66,33 @@ public class Hotel {
 
     }
 
-//    public void dealCard(int cards) {
-//
-//        for (Player player : this.players) {
-//            for(int i = 0; i < cards ; i++) {
-//                player.receiveCard(deck.giveCard());
-//            }
-//        }
-//    }
+    public void checkGuestIntoBedroom(Guest guest, Bedroom bedroom) {
+        bedroom.addGuestToRoom(guest);
+        till += bedroom.roomPrice();
+        guest.payforRoom(bedroom.roomPrice());
+    }
 
+    public void checkGuestIntoConferenceroom(Guest guest, ConferenceRoom conferenceroom) {
+        conferenceroom.addGuestToRoom(guest);
+        till += conferenceroom.roomPrice();
+        guest.payforRoom(conferenceroom.roomPrice());
+    }
+
+
+    public int checkVacantBedrooms(){
+        ArrayList<Bedroom> emptyrooms = new ArrayList<>();
+        for (Bedroom bedroom : this.bedrooms) {
+            if (bedroom.countGuestsInRoom() == 0){
+            emptyrooms.add(bedroom);}
+            }  return emptyrooms.size();
+    }
+
+
+    public int checkVacantConferencerooms() {
+        ArrayList<ConferenceRoom> emptyrooms = new ArrayList<>();
+        for (ConferenceRoom conferenceroom : this.conferencerooms) {
+            if (conferenceroom.countGuestsInRoom() == 0){
+                emptyrooms.add(conferenceroom);}
+        }  return emptyrooms.size();
+    }
 }

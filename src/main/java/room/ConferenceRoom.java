@@ -2,18 +2,18 @@ package room;
 
 public class ConferenceRoom extends Room {
 
-    private double cost;
+    private double price;
     private String name;
 
-    public ConferenceRoom(int capacity, String name, double cost) {
+    public ConferenceRoom(int capacity, String name, double price) {
         super(capacity);
         this.name = name;
-        this.cost = cost;
+        this.price = price;
 
     }
 
-    public double getCost() {
-        return this.cost;
+    public double roomPrice() {
+        return this.price;
     }
 
     public String getName() {

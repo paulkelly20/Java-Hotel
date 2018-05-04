@@ -67,4 +67,46 @@ public class HotelTest {
         assertEquals(3, bedroom3.getRoomnumber());
         assertEquals(4, bedroom4.getRoomnumber());
     }
+
+    @Test
+    public void checkGuestIntoBedoom(){
+        hotel.checkGuestIntoBedroom(guest1, bedroom1);
+        assertEquals(1, bedroom1.countGuestsInRoom());
+        assertEquals(159, hotel.getTill(), 0);
+        assertEquals(141, guest1.getWallet(), 0);
+
+    }
+
+    @Test
+    public void checkGuestIntoConferenceroom(){
+        hotel.checkGuestIntoConferenceroom(guest1, conferenceroom1);
+        assertEquals(1, conferenceroom1.countGuestsInRoom());
+        assertEquals(200, hotel.getTill(), 0);
+        assertEquals(100, guest1.getWallet(), 0);
+
+    }
+
+    @Test
+    public void checkHowmanyBedroomsAreVacant(){
+        hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
+        hotel.addBedroom(bedroom3);
+        hotel.addBedroom(bedroom4);
+        hotel.checkGuestIntoBedroom(guest1, bedroom1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom2);
+        assertEquals(2, hotel.checkVacantBedrooms());
+    }
+
+    @Test
+    public void checkHowmanyConferenceroomsAreVacant(){
+        hotel.addConferenceRoom(conferenceroom1);
+        hotel.addConferenceRoom(conferenceroom2);
+        hotel.checkGuestIntoConferenceroom(guest1, conferenceroom1);
+        assertEquals(1, hotel.checkVacantConferencerooms());
+    }
+
+
+
+
+
 }

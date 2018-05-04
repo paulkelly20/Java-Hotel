@@ -29,7 +29,7 @@ public class ConferenceRoomTest {
 
     @Test
     public void checkRoomCost(){
-        assertEquals(100, conferenceroom.getCost(), 0);
+        assertEquals(100, conferenceroom.roomPrice(), 0);
     }
 
     @Test

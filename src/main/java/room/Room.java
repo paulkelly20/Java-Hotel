@@ -28,5 +28,7 @@ public abstract class Room {
     public int getCapacity() {
         return capacity;
     }
+
+
 }
 

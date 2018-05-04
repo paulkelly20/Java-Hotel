@@ -18,7 +18,7 @@ public class Guest {
         return wallet;
     }
 
-    public void payforRoom(Double room){
+    public void payforRoom(double room){
         wallet -= room;
 
     }
