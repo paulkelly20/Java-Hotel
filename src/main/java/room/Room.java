@@ -38,9 +38,18 @@ public abstract class Room {
         for(Guest guest: room){ guests.add(guest.getName());}
 
         return guests;
+    }
 
-        }
+    public ArrayList getNameOfPeopleInCertainRooms(Room particularroom){
+        ArrayList<String> guests = new ArrayList<>();
+        for(Guest guest: particularroom.getRoom()){ guests.add(guest.getName());}
+
+        return guests;
+    }
+
 }
+
+
 
 
 

@@ -104,6 +104,20 @@ public class HotelTest {
     }
 
     @Test
+    public void getListOfVacantBedrooms(){
+        hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
+        hotel.addBedroom(bedroom3);
+        hotel.addBedroom(bedroom4);
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom2, 1);
+        ArrayList<Bedroom> bedrooms = new ArrayList<>();
+        bedrooms.add(bedroom3);
+        bedrooms.add(bedroom4);
+        assertEquals(bedrooms, hotel.checkVacantBedrooms());
+    }
+
+    @Test
     public void checkHowmanyBedroomsAreVacant(){
         hotel.addBedroom(bedroom1);
         hotel.addBedroom(bedroom2);
@@ -111,7 +125,7 @@ public class HotelTest {
         hotel.addBedroom(bedroom4);
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
         hotel.checkGuestIntoBedroom(guest2, bedroom2, 1);
-        assertEquals(2, hotel.checkVacantBedrooms());
+        assertEquals(2, hotel.checkVacantBedroomslist());
     }
 
     @Test
@@ -123,13 +137,27 @@ public class HotelTest {
     }
 
     @Test
-    public void getListOfGuestsNames(){
+    public void getListOfGuestsNamesInAllRooms(){
         hotel.addBedroom(bedroom1);
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
         ArrayList<String> names = new ArrayList<>();
         names.add("[Paul]");
         assertEquals(names, hotel.getNameOfGuestsInHotel());
     }
+
+    @Test
+    public void getListOfNamesOfGuestsInParticularRoom(){
+        hotel.addBedroom(bedroom1);
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom1, 1);
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Paul");
+        names.add("Elaine");
+        assertEquals(names, hotel.getNameOfPeopleInCertainRooms(bedroom1));
+
+    }
+
+
 
 
 

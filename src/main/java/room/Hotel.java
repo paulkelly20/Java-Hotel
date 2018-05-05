@@ -80,12 +80,20 @@ public class Hotel {
     }
 
 
-    public int checkVacantBedrooms(){
+    public ArrayList checkVacantBedrooms(){
         ArrayList<Bedroom> emptyrooms = new ArrayList<>();
         for (Bedroom bedroom : this.bedrooms) {
             if (bedroom.countGuestsInRoom() == 0){
             emptyrooms.add(bedroom);}
-            }  return emptyrooms.size();
+            }  return emptyrooms;
+    }
+
+    public int checkVacantBedroomslist(){
+        ArrayList<Bedroom> emptyrooms = new ArrayList<>();
+        for (Bedroom bedroom : this.bedrooms) {
+            if (bedroom.countGuestsInRoom() == 0){
+                emptyrooms.add(bedroom);}
+        }  return emptyrooms.size();
     }
 
 
@@ -121,6 +129,13 @@ public class Hotel {
         } for(Room room : allrooms){allguests.add(room.getNamesOfPeopleInRooms().toString());}
 
         return allguests;
+    }
+
+    public ArrayList getNameOfPeopleInCertainRooms(Room particularroom){
+        ArrayList<String> guests = new ArrayList<>();
+        for(Guest guest: particularroom.getRoom()){ guests.add(guest.getName());}
+
+        return guests;
     }
 }
 
