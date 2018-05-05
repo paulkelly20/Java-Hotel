@@ -1,5 +1,6 @@
 package room;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 
 public class Hotel {
@@ -66,10 +67,10 @@ public class Hotel {
 
     }
 
-    public void checkGuestIntoBedroom(Guest guest, Bedroom bedroom) {
+    public void checkGuestIntoBedroom(Guest guest, Bedroom bedroom, int nights) {
         bedroom.addGuestToRoom(guest);
-        till += bedroom.roomPrice();
-        guest.payforRoom(bedroom.roomPrice());
+        till += (bedroom.roomPrice() * nights);
+        guest.payforRoom(bedroom.roomPrice() * nights) ;
     }
 
     public void checkGuestIntoConferenceroom(Guest guest, ConferenceRoom conferenceroom) {
@@ -95,4 +96,31 @@ public class Hotel {
                 emptyrooms.add(conferenceroom);}
         }  return emptyrooms.size();
     }
+
+    public void checkGuestsOut(Room room) {
+        room.checkOutGuestsFromRoom();
+    }
+
+
+    public ArrayList getNameOfGuestsInHotel() {
+        ArrayList<String> allguests = new ArrayList<>();
+
+        ArrayList<Room> allrooms = new ArrayList<>();
+
+        for(Bedroom bedroom: this.bedrooms){
+            allrooms.add(bedroom);
+        }
+        for(ConferenceRoom conferenceroom: this.conferencerooms){
+            allrooms.add(conferenceroom);
+
+        }
+
+        for(DiningRoom diningroom: this.diningrooms){
+            allrooms.add(diningroom);
+
+        } for(Room room : allrooms){allguests.add(room.getNamesOfPeopleInRooms().toString());}
+
+        return allguests;
+    }
 }
+

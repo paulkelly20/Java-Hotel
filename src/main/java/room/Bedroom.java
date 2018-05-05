@@ -39,4 +39,6 @@ public class Bedroom extends Room {
     public void setRoomnumber(int roomnumber) {
         this.roomnumber = roomnumber;
     }
+
+
 }

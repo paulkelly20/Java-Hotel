@@ -6,11 +6,14 @@ import room.Guest;
 
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class BedroomTest {
     Bedroom bedroom;
     Guest guest;
+
 
     @Before
     public void before(){
@@ -60,5 +63,14 @@ public class BedroomTest {
         assertEquals(59.00, bedroom.roomPrice(),0);
     }
 
+    @Test
+    public void namesOfPeopleInRooms(){
+        bedroom.addGuestToRoom(guest);
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Paul");
+        assertEquals(names, bedroom.getNamesOfPeopleInRooms());
+    }
+
 
 }
+

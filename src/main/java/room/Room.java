@@ -16,6 +16,10 @@ public abstract class Room {
         return room.size();
     }
 
+    public ArrayList<Guest> getRoom() {
+        return this.room;
+    }
+
     public void checkOutGuestsFromRoom(){
         room.clear();
     }
@@ -29,6 +33,15 @@ public abstract class Room {
         return capacity;
     }
 
+    public ArrayList getNamesOfPeopleInRooms(){
+        ArrayList<String> guests = new ArrayList<>();
+        for(Guest guest: room){ guests.add(guest.getName());}
 
+        return guests;
+
+        }
 }
+
+
+
 
