@@ -13,7 +13,7 @@ public class ConferenceRoomTest {
 
     @Before
     public void before() {
-        conferenceroom = new ConferenceRoom(5, "Codeclan", 100);
+        conferenceroom = new ConferenceRoom(5,100, "Codeclan");
         guest = new Guest("Paul", 1000);
     }
 
@@ -29,11 +29,11 @@ public class ConferenceRoomTest {
 
     @Test
     public void checkRoomCost(){
-        assertEquals(100, conferenceroom.roomPrice(), 0);
+        assertEquals(100, conferenceroom.getRoomPrice(), 0);
     }
 
     @Test
-    public void checkIfConferenceRoomisEmpty(){
+    public void checkIfConferenceRoomIsEmpty(){
         assertEquals(0, conferenceroom.countGuestsInRoom());
     }
 

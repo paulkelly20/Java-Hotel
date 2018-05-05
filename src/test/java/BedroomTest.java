@@ -60,7 +60,7 @@ public class BedroomTest {
 
     @Test
     public void checkRoomFee(){
-        assertEquals(59.00, bedroom.roomPrice(),0);
+        assertEquals(59.00, bedroom.getRoomPrice(),0);
     }
 
     @Test

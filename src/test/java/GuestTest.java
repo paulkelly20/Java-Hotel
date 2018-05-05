@@ -30,7 +30,7 @@ public class GuestTest {
 
     @Test
     public void checkWalletAfterGuestPaysForRoom(){
-        guest.payforRoom(bedroom.roomPrice());
+        guest.payforRoom(bedroom.getRoomPrice());
         assertEquals(41, guest.getWallet(), 0);
     }
 }

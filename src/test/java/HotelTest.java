@@ -28,8 +28,8 @@ public class HotelTest {
         bedroom2 = new Bedroom(BedroomType.FAMILY);
         bedroom3 = new Bedroom(BedroomType.FAMILY);
         bedroom4 = new Bedroom(BedroomType.FAMILY);
-        conferenceroom1 = new ConferenceRoom(1, "Conferenceroom 1", 100);
-        conferenceroom2 = new ConferenceRoom(2, "Conferenceroom 2", 3000);
+        conferenceroom1 = new ConferenceRoom(1, 100,"Conferenceroom 1");
+        conferenceroom2 = new ConferenceRoom(2, 2000,"Conferenceroom 2");
         diningroom = new DiningRoom(3);
 
     }
@@ -89,6 +89,23 @@ public class HotelTest {
     }
 
     @Test
+    public void checkMultipleGuestsIntoRoomButOnlyFirstGuestIsCharged(){
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom1, 1);
+        assertEquals(141, guest1.getWallet(), 0);
+        assertEquals(500, guest2.getWallet(), 0);
+    }
+
+    @Test
+    public void checkMultipleGuestsIntoRoomCantCheckSecondGuestInForMoreNightsThanFirst(){
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom1, 2);
+        assertEquals(1, bedroom1.countGuestsInRoom());
+
+    }
+
+
+    @Test
     public void checkGuestsOut(){
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 2);
         hotel.checkGuestsOut(bedroom1);
@@ -125,7 +142,7 @@ public class HotelTest {
         hotel.addBedroom(bedroom4);
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
         hotel.checkGuestIntoBedroom(guest2, bedroom2, 1);
-        assertEquals(2, hotel.checkVacantBedroomslist());
+        assertEquals(2, hotel.getNumberOfVacantBedrooms());
     }
 
     @Test
@@ -142,7 +159,7 @@ public class HotelTest {
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
         ArrayList<String> names = new ArrayList<>();
         names.add("[Paul]");
-        assertEquals(names, hotel.getNameOfGuestsInHotel());
+        assertEquals(names.size(), hotel.getNameOfGuestsInHotel());
     }
 
     @Test
@@ -156,10 +173,6 @@ public class HotelTest {
         assertEquals(names, hotel.getNameOfPeopleInCertainRooms(bedroom1));
 
     }
-
-
-
-
 
 
 
