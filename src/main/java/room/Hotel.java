@@ -2,6 +2,7 @@ package room;
 
 import javax.smartcardio.Card;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hotel {
     private String name;
@@ -116,26 +117,23 @@ public class Hotel {
     }
 
 
-    public int getNameOfGuestsInHotel() {
-        ArrayList<String> allguests = new ArrayList<>();
+    public HashMap getNameOfGuestsInHotel() {
+        HashMap<Room, String> allguests = new HashMap<>();
 
         ArrayList<Room> allrooms = new ArrayList<>();
 
-        for(Bedroom bedroom: this.bedrooms){
-            allrooms.add(bedroom);
-        }
-        for(ConferenceRoom conferenceroom: this.conferencerooms){
-            allrooms.add(conferenceroom);
 
-        }
+        allrooms.addAll(bedrooms);
+        allrooms.addAll(conferencerooms);
+        allrooms.addAll(diningrooms);
 
-        for(DiningRoom diningroom: this.diningrooms){
-            allrooms.add(diningroom);
+        for(Room room : allrooms){allguests.put(room,room.getNamesOfPeopleInRooms().toString());}
 
-        }
-        for(Room room : allrooms){allguests.add(room.getNamesOfPeopleInRooms().toString());}
+        return allguests;
+    }
 
-        return allguests.size();
+    public int countGuestsInHotel(){
+       return getNameOfGuestsInHotel().size();
     }
 
     public ArrayList getNameOfPeopleInCertainRooms(Room particularroom){

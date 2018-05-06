@@ -3,6 +3,7 @@ import org.junit.Test;
 import room.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -157,10 +158,27 @@ public class HotelTest {
     public void getListOfGuestsNamesInAllRooms(){
         hotel.addBedroom(bedroom1);
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
-        ArrayList<String> names = new ArrayList<>();
-        names.add("[Paul]");
-        assertEquals(names.size(), hotel.getNameOfGuestsInHotel());
+        HashMap<Room, String> names = new HashMap();
+        names.put(bedroom1,"[Paul]");
+        assertEquals(names, hotel.getNameOfGuestsInHotel());
     }
+
+    @Test
+    public void checkCountGuestsInHotel(){
+        hotel.addBedroom(bedroom1);
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        assertEquals(1, hotel.countGuestsInHotel());
+    }
+
+    @Test
+    public void getListOfGuestsNamesInAllRoomsTwoPeople(){
+        hotel.addBedroom(bedroom1);
+        hotel.addConferenceRoom(conferenceroom1);
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoConferenceroom(guest2, conferenceroom1);
+        assertEquals(2, hotel.countGuestsInHotel());
+    }
+
 
     @Test
     public void getListOfNamesOfGuestsInParticularRoom(){
