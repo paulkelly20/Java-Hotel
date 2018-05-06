@@ -12,13 +12,17 @@ import static org.junit.Assert.assertEquals;
 
 public class BedroomTest {
     Bedroom bedroom;
+    Bedroom bedroom2;
     Guest guest;
+    Guest guest2;
 
 
     @Before
     public void before(){
         bedroom = new Bedroom(BedroomType.DOUBLE);
+        bedroom2 = new Bedroom(BedroomType.FAMILY);
         guest = new Guest("Paul", 1000);
+        guest2 = new Guest("Elaine", 1000);
     }
 
     @Test
@@ -70,6 +74,17 @@ public class BedroomTest {
         names.add("Paul");
         assertEquals(names, bedroom.getNamesOfPeopleInRooms());
     }
+
+    @Test
+    public void namesOfPeopleInRoomsTwoPeople(){
+        bedroom.addGuestToRoom(guest);
+        bedroom.addGuestToRoom(guest2);
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Paul");
+        names.add("Elaine");
+        assertEquals(names, bedroom.getNamesOfPeopleInRooms());
+    }
+
 
 
 }

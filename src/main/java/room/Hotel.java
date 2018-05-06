@@ -76,11 +76,6 @@ public class Hotel {
     }
 
 
-//    public void addGuestToBookedBedroom(Bedroom bedroom, Guest guest, int nights){
-//        bedroom.addGuestToRoom(guest);
-//    }
-
-
     public void checkGuestIntoConferenceroom(Guest guest, BillableRoom conferenceroom) {
         if(conferenceroom.countGuestsInRoom() == 0){
            conferenceroom .addGuestToRoom(guest);
@@ -121,13 +116,13 @@ public class Hotel {
         HashMap<Room, String> allguests = new HashMap<>();
 
         ArrayList<Room> allrooms = new ArrayList<>();
-
-
         allrooms.addAll(bedrooms);
         allrooms.addAll(conferencerooms);
         allrooms.addAll(diningrooms);
 
-        for(Room room : allrooms){allguests.put(room,room.getNamesOfPeopleInRooms().toString());}
+        for(Room room : allrooms)if
+                (room.countGuestsInRoom() > 0)
+                 {allguests.put(room,room.getNamesOfPeopleInRooms().toString());}
 
         return allguests;
     }
@@ -139,7 +134,6 @@ public class Hotel {
     public ArrayList getNameOfPeopleInCertainRooms(Room particularroom){
         ArrayList<String> guests = new ArrayList<>();
         for(Guest guest: particularroom.getRoom()){ guests.add(guest.getName());}
-
         return guests;
     }
 }

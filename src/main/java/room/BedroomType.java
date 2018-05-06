@@ -23,6 +23,11 @@ public enum BedroomType {
     public int getCapacity() {
         return this.capacity;
     }
+
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
 
 

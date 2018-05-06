@@ -16,6 +16,7 @@ public class HotelTest {
     Bedroom bedroom2;
     Bedroom bedroom3;
     Bedroom bedroom4;
+    Bedroom bedroom5;
     ConferenceRoom conferenceroom1;
     ConferenceRoom conferenceroom2;
     DiningRoom diningroom;
@@ -29,6 +30,7 @@ public class HotelTest {
         bedroom2 = new Bedroom(BedroomType.FAMILY);
         bedroom3 = new Bedroom(BedroomType.FAMILY);
         bedroom4 = new Bedroom(BedroomType.FAMILY);
+        bedroom5 = new Bedroom(BedroomType.KING);
         conferenceroom1 = new ConferenceRoom(1, 100,"Conferenceroom 1");
         conferenceroom2 = new ConferenceRoom(2, 2000,"Conferenceroom 2");
         diningroom = new DiningRoom(3);
@@ -173,7 +175,10 @@ public class HotelTest {
     @Test
     public void getListOfGuestsNamesInAllRoomsTwoPeople(){
         hotel.addBedroom(bedroom1);
+        hotel.addBedroom(bedroom2);
         hotel.addConferenceRoom(conferenceroom1);
+        hotel.addConferenceRoom(conferenceroom2);
+        hotel.addDiningroom(diningroom);
         hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
         hotel.checkGuestIntoConferenceroom(guest2, conferenceroom1);
         assertEquals(2, hotel.countGuestsInHotel());
@@ -192,6 +197,17 @@ public class HotelTest {
 
     }
 
+//    @Test /// Test not working why??
+//    public void changePriceOfRoom(){
+//        bedroom1.setRoomprice(150);
+//        assertEquals(150, bedroom1.getRoomPrice(), 0);
+//    }
 
+
+    @Test
+    public void changePriceOfRoomKingRoom(){
+        bedroom5.setRoomprice(1000);
+        assertEquals(1000, bedroom5.getRoomPrice(), 0);
+    }
 
 }

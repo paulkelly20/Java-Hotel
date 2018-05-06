@@ -40,12 +40,6 @@ public abstract class Room {
         return guests;
     }
 
-    public ArrayList getNameOfPeopleInCertainRooms(Room particularroom){
-        ArrayList<String> guests = new ArrayList<>();
-        for(Guest guest: particularroom.getRoom()){ guests.add(guest.getName());}
-
-        return guests;
-    }
 
 }
 

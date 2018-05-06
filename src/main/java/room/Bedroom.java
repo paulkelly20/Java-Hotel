@@ -47,4 +47,9 @@ public class Bedroom extends BillableRoom {
     public void setNightsbooked(int nightsbooked) {
         this.nightsbooked = nightsbooked;
     }
+
+    public void setRoomprice(double newRoomPrice){
+        this.bedroomtype.setPrice(newRoomPrice);
+
+    }
 }
