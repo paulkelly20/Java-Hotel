@@ -62,7 +62,7 @@ public class HotelTest {
 
 
     @Test
-    public void checkBedroomNUmbers(){
+    public void checkBedroomNumbers(){
         hotel.addBedroom(bedroom1);
         hotel.addBedroom(bedroom2);
         hotel.addBedroom(bedroom3);
@@ -129,16 +129,21 @@ public class HotelTest {
         hotel.addBedroom(bedroom2);
         hotel.addBedroom(bedroom3);
         hotel.addBedroom(bedroom4);
-        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
-        hotel.checkGuestIntoBedroom(guest2, bedroom2, 1);
-        ArrayList<Bedroom> bedrooms = new ArrayList<>();
+        ArrayList<Room> bedrooms = new ArrayList<>();
+        bedrooms.add(bedroom1);
+        bedrooms.add(bedroom2);
         bedrooms.add(bedroom3);
         bedrooms.add(bedroom4);
-        assertEquals(bedrooms, hotel.checkVacantBedrooms());
+        hotel.checkGuestIntoBedroom(guest1, bedroom1, 1);
+        hotel.checkGuestIntoBedroom(guest2, bedroom2, 1);
+        ArrayList<Bedroom> VacantBedrooms = new ArrayList<>();
+        VacantBedrooms.add(bedroom3);
+        VacantBedrooms.add(bedroom4);
+        assertEquals(VacantBedrooms, hotel.checkVacantRooms(bedrooms));
     }
 
     @Test
-    public void checkHowmanyBedroomsAreVacant(){
+    public void checkHowManyBedroomsAreVacant(){
         hotel.addBedroom(bedroom1);
         hotel.addBedroom(bedroom2);
         hotel.addBedroom(bedroom3);
@@ -149,7 +154,7 @@ public class HotelTest {
     }
 
     @Test
-    public void checkHowmanyConferenceroomsAreVacant(){
+    public void checkHowManyConferenceroomsAreVacant(){
         hotel.addConferenceRoom(conferenceroom1);
         hotel.addConferenceRoom(conferenceroom2);
         hotel.checkGuestIntoConferenceroom(guest1, conferenceroom1);

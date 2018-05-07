@@ -68,7 +68,7 @@ public class BedroomTest {
     }
 
     @Test
-    public void namesOfPeopleInRooms(){
+    public void namesOfPeopleInRoom(){
         bedroom.addGuestToRoom(guest);
         ArrayList<String> names = new ArrayList<>();
         names.add("Paul");
@@ -76,7 +76,7 @@ public class BedroomTest {
     }
 
     @Test
-    public void namesOfPeopleInRoomsTwoPeople(){
+    public void namesOfPeopleInRoomTwoPeople(){
         bedroom.addGuestToRoom(guest);
         bedroom.addGuestToRoom(guest2);
         ArrayList<String> names = new ArrayList<>();

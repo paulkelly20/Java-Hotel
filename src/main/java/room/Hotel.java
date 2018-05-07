@@ -1,6 +1,5 @@
 package room;
 
-import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -104,6 +103,20 @@ public class Hotel {
             if (conferenceroom.countGuestsInRoom() == 0){
                 emptyrooms.add(conferenceroom);}
         }  return emptyrooms.size();
+    }
+
+    //
+    public ArrayList checkVacantRooms(ArrayList<Room> rooms){
+        ArrayList<Room> emptyrooms = new ArrayList<>();
+        for (Room room : rooms) {
+            if (room.countGuestsInRoom() == 0){
+                emptyrooms.add(room);}
+        }  return emptyrooms;
+    }
+
+
+    public int countOfVacantRooms(ArrayList<Room> rooms){
+        return checkVacantRooms(rooms).size();
     }
 
 
